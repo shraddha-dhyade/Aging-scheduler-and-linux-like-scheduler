@@ -1,0 +1,35 @@
+Ans 1) 
+Advantages -
+	Aging Based Scheduler - The process eliminates the problem of starvation as seen by the default Xinu Scheduler.
+	increasing the priority by 1 each time resched is called, push lower priority processes in the ready queue
+	to higher priority compared to the currently executing process thus context switching takes place
+
+	Linux Based Scheduler - The Scheduler allots every process a quantum within every epoch. Therefore, all
+	processes in the system will run for every epoch.
+
+Disadvantages -
+	Aging Based Scheduler - This scheduler leads to priority inversion which adversely by stalling higher priority
+	processes for a long time.
+
+	Linux Based Scheduler - The scheduler implements a complex algorithm of the order O(cn) which increases the
+	overhead of every process.
+
+Ans 2)
+Aging Based Scheduler -
+    Null process is excluded from the priority increment logic of the scheduler. The null process only runs once all
+    processes have expired.
+
+    Linux Based Scheduler -
+    The null processes is scheduled to run when either all the processes have exhausted their quantum or when there is
+    no process ready to run.
+
+
+
+Ans 3) 
+2 Ways to improve the Aging Based Scheduler would be :
+
+    a)  The Aging based scheduler could be modified to decrease quantum for lower priority processes. This will help
+    solve the problem of priority inversion wait time.
+
+    b) We could increase the priority of the process by keeping track of the process which is ready but has executed
+    very less than other processes and alot minimal quantum to it as it being the lowest priority process.
